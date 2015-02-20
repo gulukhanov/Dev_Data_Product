@@ -1,0 +1,42 @@
+Timber Volume Prediction
+========================================================
+author: Georgy Ulukhanov
+date: 20.02.2015
+
+General Information
+========================================================
+
+
+- Purpose of the application is to estimate volume of the fallen tree timber knowing 2 parameters:
+Girth (diameter in inches) and Height (in ft).
+The Volume estimation value comes in cubuc ft
+- Prediction algorithm uses linear regression model
+- The application is made with "shiny" package and is placed in "shinyapps.io" public service.
+
+- Access to thr application: https://gulukhanov.shinyapps.io/C9Shiny/
+
+
+
+Initial data
+========================================================
+
+```{r}
+library(datasets); data(trees)
+summary(trees)
+
+```
+
+Scatterplot
+========================================================
+Shows that there is very strong correlation between Volume and Girth variables
+```{r, echo=FALSE}
+plot (trees)
+```
+
+Linear Regression Analisis
+==========================================================
+
+```{r}
+fit<-lm(Volume~Girth+Height, data=trees)
+fit
+```
